@@ -32,10 +32,31 @@ n	t	m	p	result
 
 """
 
+def convert(value, n):
+    T = "0123456789ABCDEF"
+    q, r = divmod(value, n)
+    if q == 0:
+        return T[r]
+    else:
+        return convert(q, n) + T[r]
+
+
+
 def tubesTell(n,t,m,p):
+    resStr = ''
+    for value in range(1000):
+        resStr = resStr + convert(value,n)
+        if len(resStr) >= t * m - (m-p):
+            break;
+    result = ''
+
+    for i in range(len(resStr)):
+        if i*m +p < len(resStr):
+            result = result + resStr[(i * m )+ p -1]
+
+    return result
 
 
-
-
-
-    return ''
+print(tubesTell(16,16,2,1))
+print(tubesTell(16,16,2,2))
+print(tubesTell(2,4,2,1))
