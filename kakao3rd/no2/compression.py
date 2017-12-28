@@ -67,27 +67,22 @@ ABABABABABABABAB	        [1, 2, 27, 29, 28, 31, 30]
 def makeList(str):
     index = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
     resSet = []
-    mSet = list(str)
-    start = duple = 0
-    i=1
-    last = 0
+    start = 0
+    i=0
     while i <= len(str) :
-        print(str[start:i])
-        print(start, i,len(str))
-        if i == len(str) & duple < i:
-            if last == 1 :
-                resSet.append(index.index(str[start:i])+ 1)
-            last = 1
-            print("result")
+        # print(str[start:i])
+        # print(start, i,len(str))
+        i = i + 1
+        if i - 1 == len(str) :
+            resSet.append(index.index(str[start:i])+ 1)
+            # print("result")
         if str[start:i] not in index:
             index.append(str[start:i])
             # print("index",index)
             resSet.append(index.index(str[start:i-1])+1)
             # print("resSet : ",resSet)
             # print(start,i)
-            i = duple = start = i-1
-
-        i = i+1
+            i = start = i-1
 
 
     return resSet
