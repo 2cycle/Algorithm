@@ -15,7 +15,7 @@ w에 해당하는 사전의 색인 번호를 출력하고, 입력에서 w를 제
 압축 알고리즘이 영문 대문자만 처리한다고 할 때, 사전은 다음과 같이 초기화된다. 사전의 색인 번호는 정수값으로 주어지며, 1부터 시작한다고 하자.
 
 색인 번호	1	2	3	…	24	25	26
-단어	A	B	C	…	X	Y	Z
+단어	    A	B	C	…	X	Y	Z
 예를 들어 입력으로 KAKAO가 들어온다고 하자.
 
 현재 사전에는 KAKAO의 첫 글자 K는 등록되어 있으나, 두 번째 글자까지인 KA는 없으므로, 첫 글자 K에 해당하는 색인 번호 11을 출력하고, 다음 글자인 A를 포함한 KA를 사전에 27 번째로 등록한다.
@@ -63,30 +63,34 @@ ABABABABABABABAB	        [1, 2, 27, 29, 28, 31, 30]
 
 # 풀이방식 : lambda 사용, range(i:list.size()) 사용하여 i를 증가시키며 해당 값이 있는지 확인하고 없으면 -1한 값의 index를 찾고 새로운 값을 리스트에 추가
 
-index = list('ABCDEFGHIJKLMNOPQURSTUVWXYZ')
 
 def makeList(str):
+    index = list('ABCDEFGHIJKLMNOPQRSTUVWXYZ')
     resSet = []
     mSet = list(str)
-    start = 0
+    start = duple = 0
     i=1
+    last = 0
     while i <= len(str) :
+        print(str[start:i])
+        print(start, i,len(str))
+        if i == len(str) & duple < i:
+            if last == 1 :
+                resSet.append(index.index(str[start:i])+ 1)
+            last = 1
+            print("result")
         if str[start:i] not in index:
             index.append(str[start:i])
-            resSet.append(index.index(str[start:i-1]))
-            start = start + i
+            # print("index",index)
+            resSet.append(index.index(str[start:i-1])+1)
+            # print("resSet : ",resSet)
+            # print(start,i)
+            i = duple = start = i-1
+
         i = i+1
 
 
-
-
-
-
-
-
-
-
-    return ''
+    return resSet
 
 
 testStr1 = 'KAKAO'
