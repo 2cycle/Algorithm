@@ -59,7 +59,8 @@ def findSong(melody , songinfo):
     for i in range(len(songMld)):
         # print(nMelody,songMld[i])
         if nMelody in songMld[i]:
-            # print("catch")
+            # print("catch") list.append(somgMin[i])
+            #여기서 시간 체크 한번 더 해줘야 할 듯 list 가져와서 max(list, key=len)
             return songinfo[i].split(",")[2]
     
     

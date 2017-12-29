@@ -44,7 +44,7 @@ def convert(value, n):
 
 def tubesTell(n,t,m,p):
     resStr = ''
-    for value in range(1000):
+    for value in range(1000000000000):
         resStr = resStr + convert(value,n)
         if len(resStr) >= t * m - (m-p):
             break;
@@ -57,6 +57,6 @@ def tubesTell(n,t,m,p):
     return result
 
 
-print(tubesTell(16,16,2,1))
-print(tubesTell(16,16,2,2))
-print(tubesTell(2,4,2,1))
+print(tubesTell(16,1000,100,100))
+# print(tubesTell(16,16,2,2))
+# print(tubesTell(2,4,2,1))

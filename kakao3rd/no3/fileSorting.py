@@ -48,10 +48,9 @@ def sorting(list):
 
     # sortRes = sorted(list,key=lambda regex: regex.replace("\W","").split("\d+")[0].lower)
     # print(re.split(r'\d+',list[1].replace("\W", ""))[0].lower(),"test")
-    sortRes = sorted(list, key=lambda keyV: (re.split(r'\d+',keyV.replace("\W", ""))[0].lower(),int(re.split(r"\D+",keyV.replace("\W", ""))[1])))
+    return sorted(list, key=lambda keyV: (re.split(r'\d+',keyV.replace(r"\W", ""))[0].lower(),int(re.split(r"\D+",keyV.replace(r"\W", ""))[1])))
     # using sorting with secondary key
     # In key, using lambda to find sorting criteria in list values
-    return sortRes
 
 
 
