@@ -38,14 +38,14 @@ def sol(N , mHp , pJoy):
     dp = []
     for i in range(N):
         for j in range(100):
-            dp[j] = max(dp[j],dp[j-])
+            dp[j] = max(dp[j],dp[j-1])
 
 
 
 
 n = 3
-weight = map(int,raw_input().split())
-value = map(int,raw_input().split())
+weight = map(int,input().split())
+value = map(int,input().split())
 capacity = 99
 index = 0
 
